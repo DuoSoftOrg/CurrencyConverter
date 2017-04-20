@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Currency Converter</string>
+
+    <string name="internet_request_failed_message">Unable to connect to service currency exchange. Perhaps there is no Internet connection?</string>
+    <string name="json_parse_failed_message">Unable to parse response. Perhaps you entered an incorrect letter code of the currency?</string>
+    <string name="label_from">From</string>
+    <string name="label_to">To</string>
+    <string name="label_convert">CONVERT</string>
+
+</resources>

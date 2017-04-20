@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">Currency Converter</string>
+
+    <string name="app_name">Конвертер валют</string>
+
+    <string name="internet_request_failed_message">Не удалось соединиться с сервисом обмена валют. Возможно, отсутствует интернет?</string>
+    <string name="json_parse_failed_message">Не удалось разобрать ответ. Возможно, вы указали не корректный буквенный код валюты?</string>
+
+
+    <string name="admob_id" translatable="false">ca-app-pub-3956530438590758~6864267826</string>
+    <string name="admob_banner" translatable="false">ca-app-pub-3956530438590758/3401682220</string>
+    <string name="admob_pager" translatable="false">ca-app-pub-3956530438590758/5039865829</string>
+    <string name="label_from">From</string>
+    <string name="label_to">To</string>
+    <string name="label_convert">КОНВЕРТИРОВАТЬ</string>
+
 </resources>
