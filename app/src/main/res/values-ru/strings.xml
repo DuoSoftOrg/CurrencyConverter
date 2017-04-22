@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">Конвертер валют</string>
+
+    <string name="internet_request_failed_message">Не удалось соединиться с сервисом обмена валют. Возможно, отсутствует интернет?</string>
+    <string name="json_parse_failed_message">Не удалось разобрать ответ. Возможно, вы указали не корректный буквенный код валюты?</string>
+
+    <string name="label_convert">КОНВЕРТИРОВАТЬ</string>
+
+</resources>

@@ -14,6 +14,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import org.duosoft.currencyconverter.R;
 import org.duosoft.currencyconverter.model.Currency;
 import org.duosoft.currencyconverter.utils.Db;
@@ -65,8 +69,6 @@ public class MainActivity extends Activity {
         selectedCurrencyFrom = Db.getCurrency(Settings.getDefaultCurrencyIdFrom());
         selectedCurrencyTo = Db.getCurrency(Settings.getDefaultCurrencyIdTo());
 
-        setViews();
-
         from_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +92,12 @@ public class MainActivity extends Activity {
             }
         });
 
+        AdView adView = (AdView) findViewById(R.id.adView);
+        MobileAds.initialize(getApplicationContext(), getString(R.string.admob_id));
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+
+        setViews();
         convert();
     }
 

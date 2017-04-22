@@ -16,6 +16,7 @@ import android.widget.ListView;
 import org.duosoft.currencyconverter.R;
 import org.duosoft.currencyconverter.model.adapter.CurrenciesAdapter;
 import org.duosoft.currencyconverter.utils.Db;
+import org.duosoft.currencyconverter.utils.LoadAd;
 import org.duosoft.currencyconverter.utils.Settings;
 
 public class CurrenciesActivity extends Activity {
@@ -67,7 +68,7 @@ public class CurrenciesActivity extends Activity {
                 if (Settings.getDefaultLanguage().equals(Settings.LANGUAGE_RU))
                     adapter.changeCursor(Db.query("select * from currencies where [tag] like '"+q+"%' collate nocase or [name_ru] like '%"+q+"%' collate nocase"));
                 else
-                    adapter.changeCursor(Db.query("select * from currencies where [tag] like '"+q+"%' collate nocase or [name_en] like '%"+q+"%' collate nocase"));
+                    adapter.changeCursor(Db.query("select * from currencies where [tag] like '"+q+"%' collate nocase or [name_eng] like '%"+q+"%' collate nocase"));
 
                 adapter.notifyDataSetChanged();
             }
@@ -78,5 +79,13 @@ public class CurrenciesActivity extends Activity {
             }
         });
 
+        LoadAd.updateAd();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LoadAd.getAd().show();
     }
 }

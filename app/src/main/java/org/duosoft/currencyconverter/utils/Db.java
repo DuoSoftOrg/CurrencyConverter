@@ -16,10 +16,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
-/**
- * Created by Admin on 18.04.17.
- */
-
 public class Db extends SQLiteOpenHelper {
 
     private static String DB_NAME = "db.sqlite";
@@ -55,12 +51,9 @@ public class Db extends SQLiteOpenHelper {
         boolean dbExist = checkDataBase();
 
         if(dbExist){
-            //ничего не делать - база уже есть
             openDataBase();
-        }else{
-            //вызывая этот метод создаем пустую базу, позже она будет перезаписана
+        } else{
             this.getReadableDatabase();
-
             try {
                 copyDataBase();
             } catch (IOException e) {
@@ -91,12 +84,9 @@ public class Db extends SQLiteOpenHelper {
         myOutput.flush();
         myOutput.close();
         myInput.close();
-
-        Log.d("tag", "копируем бд");
     }
 
     private void openDataBase() throws SQLException {
-        //открываем БД
         String myPath = DB_PATH + DB_NAME;
         myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
     }
@@ -138,7 +128,7 @@ public class Db extends SQLiteOpenHelper {
             if (Settings.getDefaultLanguage().equals(Settings.LANGUAGE_RU))
                 currency.setName(c.getString(c.getColumnIndex("name_ru")));
             else
-                currency.setName(c.getString(c.getColumnIndex("name_en")));
+                currency.setName(c.getString(c.getColumnIndex("name_eng")));
             currency.setImage(currency.getTag().toLowerCase() + ".png");
         }
         c.close();
@@ -156,7 +146,7 @@ public class Db extends SQLiteOpenHelper {
             if (Settings.getDefaultLanguage().equals(Settings.LANGUAGE_RU))
                 currency.setName(c.getString(c.getColumnIndex("name_ru")));
             else
-                currency.setName(c.getString(c.getColumnIndex("name_en")));
+                currency.setName(c.getString(c.getColumnIndex("name_eng")));
             currency.setImage(currency.getTag().toLowerCase() + ".png");
 
             currencies.add(currency);

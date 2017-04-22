@@ -37,7 +37,7 @@ public class CurrenciesAdapter extends CursorAdapter {
         if (Settings.getDefaultLanguage().equals(Settings.LANGUAGE_RU))
             name = c.getString(c.getColumnIndex("name_ru"));
         else
-            name = c.getString(c.getColumnIndex("name_en"));
+            name = c.getString(c.getColumnIndex("name_eng"));
 
         try {
             Drawable drawable = Drawable.createFromStream(v.getContext().getAssets().open(imageName), null);
